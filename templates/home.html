@@ -2,7 +2,11 @@
 
 {% block content %}
 <div class="posts-container">
-    <h2>Posts</h2>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi ratione aliquid ad fuga tempore.</p>
+    {% for post in all_posts %}
+    <div class="post-entry">
+        <h2><a href="{% url "post_detail" post.pk %}">{{post.title}}</a></h2>
+        <p>{{post.body}}</p>
+    </div>
+    {% endfor %}
 </div>
 {% endblock content %}
